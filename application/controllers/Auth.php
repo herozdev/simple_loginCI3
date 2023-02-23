@@ -34,12 +34,19 @@ class Auth extends CI_Controller {
             redirect('member','refresh');
           }
         } else {
-          $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong><i class="ace-icon fa fa-times">Wrong Username and Password!!</i></strong></div>');
+          $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong><i class="ace-icon fa fa-times"></i> Wrong Username and Password!!</strong></div>');
           
           redirect('auth','refresh');
-          
         }
+      } else {
+        $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong><i class="ace-icon fa fa-times"></i> This Username is not activated! </strong></div>');
+        
+        redirect('auth','refresh');
       }
+    } else {
+      $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong><i class="ace-icon fa fa-times"></i> This username not registered!! </strong></div>');
+      
+      redirect('auth','refresh');
     }
   }
   

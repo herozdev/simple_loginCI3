@@ -21,24 +21,26 @@
 											<i class="ace-icon fa fa-users green"></i>
 											Please Enter Your Information
 										</h4>
+										
+										<div class="space-6"></div>
+										
 										<?= $this->session->flashdata('message'); ?>
 										<?= $this->session->flashdata('error_login'); ?>
-
-										<div class="space-6"></div>
-
 										<form action="<?= base_url('auth'); ?>" method="POST">
 											<fieldset>
 												<label class="block clearfix">
 													<span class="block input-icon input-icon-right">
-														<input type="text" name="user_name" id="userName" class="form-control" placeholder="Username" />
+														<input type="text" name="user_name" id="userName" class="form-control" placeholder="Username" value="<?= set_value('user_name') ?>" />
 														<i class="ace-icon fa fa-user"></i>
+														<?= form_error('user_name', '<small class="text-danger padding-left-3">', '</small>') ?>
 													</span>
 												</label>
-
+												
 												<label class="block clearfix">
 													<span class="block input-icon input-icon-right">
 														<input type="password" name="user_password" id="userPassword" class="form-control" placeholder="Password" />
 														<i class="ace-icon fa fa-lock"></i>
+														<?= form_error('user_password', '<small class="text-danger padding-left-3">', '</small>') ?>
 													</span>
 												</label>
 
